@@ -55,6 +55,7 @@ const World = () => {
                     borderRight: '1px solid #ccc',
                     boxShadow: '2px 0 8px rgba(0,0,0,0.1)',
                     transform: selectD ? 'translateX(0)' : 'translateX(-100%)',
+                    backgroundColor: '#242424',
                     transition: 'transform 0.4s ease',
                     overflowY: 'hidden',
                     zIndex: 10,
