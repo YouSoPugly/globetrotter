@@ -1,6 +1,6 @@
 import {useCountry} from "../contexts/CountryContext.tsx";
 
-export const Sidebar = () => {
+export default function Sidebar() {
   const {selectD, setSelectD} = useCountry();
 
   const wikiUrl = selectD ? `https://en.wikipedia.org/wiki/${encodeURIComponent(selectD.properties.ADMIN)}`

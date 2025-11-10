@@ -1,5 +1,5 @@
 import {createContext, useContext, useState, type ReactNode} from "react";
-import {type Country} from "../types.tsx";
+import {type Country} from "../types/types.tsx";
 
 interface CountryContextType {
   selectD: Country | null;

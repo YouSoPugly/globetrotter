@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import type {Country} from "../types.tsx";
+import type {Country} from "../types/types.tsx";
 import {useCountry} from "../contexts/CountryContext.tsx";
 import Globe from "react-globe.gl";
 
@@ -7,7 +7,7 @@ let explored: string[] = [
   'FR', 'US'
 ];
 
-export const World = () => {
+export default function World() {
   const [countries, setCountries] = useState<{ features: Country[] }>({features: []});
   const [hoverD, setHoverD] = useState<Country | null>(null);
   const {selectD, setSelectD} = useCountry();
