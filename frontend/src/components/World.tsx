@@ -38,7 +38,6 @@ export const World = () => {
         }}
         polygonSideColor={() => 'rgba(0, 100, 0, 0.15)'}
         polygonStrokeColor={() => '#111'}
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         polygonLabel={({properties: d}: any) => `
                     <b>${d.ADMIN}</b>
                   `}
