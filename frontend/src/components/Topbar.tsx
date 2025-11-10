@@ -6,22 +6,24 @@ import { useEffect } from "react";
 export default function TopBar() {
   const { user, setUser } = useUser();
 
-  useEffect(() => {
-    fetch("/api/whoami", { credentials: "include" })
+  const getUser = () => {
+    fetch(window.location.origin + "/api/users/whoami", { credentials: "include" })
       .then((res) => res.json())
       .then((data: { name: string; email: string; profilePicture: string }) => {
         if (data?.email) {
+          console.log("WHOAMI response:", data);
           setUser(new User(data.name, data.email, data.profilePicture));
         }
       })
       .catch(() => {
-        // not logged in
       });
-  }, [setUser]);
+  }
+
+  useEffect(getUser, [setUser]);
 
   const handleLogin = () => {
     const baseUrl = window.location.origin;
-    window.location.href = `${baseUrl}/login/google`;
+    window.location.href = `${baseUrl}/oauth2/authorization/google`;
   };
 
   return (
@@ -30,23 +32,23 @@ export default function TopBar() {
       top: 0,
       right: 0,
       left: 0,
-      height: 60,
-      zIndex: 1000,
+      height: 70,
+      zIndex: 5,
       display: 'flex',
       justifyContent: 'flex-end',
       alignItems: 'center',
       padding: '0 1rem',
     }}>
       <img
-        src={user?.picture || "/default-avatar.png"} // your default icon
+        key={user?.picture}
+        src={user?.picture || "/default-avatar.jpg"} // your default icon
         alt="User"
         onClick={handleLogin}
         style={{
-          width: 40,
-          height: 40,
+          width: 50,
+          height: 50,
           borderRadius: "50%",
           cursor: "pointer",
-          border: "1px solid #ccc",
         }}
       />
     </div>
