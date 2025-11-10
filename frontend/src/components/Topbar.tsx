@@ -41,7 +41,7 @@ export default function TopBar() {
     }}>
       <img
         key={user?.picture}
-        src={user?.picture || "/default-avatar.jpg"} // your default icon
+        src={`${window.location.origin}${user?.picture}` || "/default-avatar.jpg"} // your default icon
         alt="User"
         onClick={handleLogin}
         style={{

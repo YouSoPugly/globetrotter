@@ -10,10 +10,6 @@
         <module name="cc.dylanpriebe.backend.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="backend.main" target="22" />
-      <module name="backend.test" target="22" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
